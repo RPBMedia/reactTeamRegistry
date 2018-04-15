@@ -6,8 +6,7 @@ const CardList = ({list}) => {
     return (<ProfileCard
       key={index}
       id={list[index].id}
-      firstName={list[index].name.first}
-      lastName={list[index].name.last}
+      name={list[index].name}
       email={list[index].email}
       phone={list[index].phone}
       company={list[index].company}

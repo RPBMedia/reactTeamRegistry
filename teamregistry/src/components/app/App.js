@@ -2,20 +2,28 @@ import React, { Component } from 'react';
 import CardList from '../cardList/CardList';
 import Header from '../header/Header';
 import SearchBox from '../searchBox/SearchBox';
-import { profiles } from '../../profiles';
 
 class App extends Component {
 
   constructor() {
     super();
     this.state = {
-      profiles: profiles,
+      profiles: [],
       searchFilter: '',
     }
   }
 
+
+  componentDidMount() {
+    fetch('https://jsonplaceholder.typicode.com/users')
+      .then(response => response.json())
+      .then(profiles =>
+        this.setState({
+          profiles: profiles
+        }));
+  }
+
   onSearchChange = (event) => {
-    console.log(event.target.value);
     this.setState({
       searchFilter: event.target.value,
     });
@@ -24,9 +32,13 @@ class App extends Component {
   render() {
 
     const filteredProfiles = this.state.profiles.filter(profiles => {
-      return (profiles.name.first.toLowerCase().includes(this.state.searchFilter.toLowerCase()) ||
-              profiles.name.last.toLowerCase().includes(this.state.searchFilter.toLowerCase()));
+      return (profiles.name.toLowerCase().includes(this.state.searchFilter.toLowerCase()) ||
+              profiles.email.toLowerCase().includes(this.state.searchFilter.toLowerCase()));
     });
+
+    if(this.state.profiles.length === 0) {
+      return <h1 className="tc loading-title">Loading profiles...</h1>
+    }
 
     return (
       <div className="tc">

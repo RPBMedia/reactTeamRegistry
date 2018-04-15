@@ -12,6 +12,14 @@ body {
   text-shadow: 3px 3px #555;
 }
 
+.loading-title{
+  font-family: 'neoteric';
+  font-size: 40px;
+  color: lightgray;
+  text-shadow: 3px 3px #555;
+  margin-top: 250px;
+}
+
 .search-box {
   width: 400px;
   margin-bottom: 10px;
