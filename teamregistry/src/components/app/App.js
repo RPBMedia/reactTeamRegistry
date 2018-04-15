@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import CardList from '../cardList/CardList';
 import Header from '../header/Header';
 import SearchBox from '../searchBox/SearchBox';
+import Scroll from '../scroll/Scroll';
 
 class App extends Component {
 
@@ -47,7 +48,9 @@ class App extends Component {
           searchChange={this.onSearchChange}
           searchFilter={this.state.searchFilter}
         />
-        <CardList list={filteredProfiles}/>
+        <Scroll>
+          <CardList list={filteredProfiles}/>
+        </Scroll>
       </div>
     );
   }
