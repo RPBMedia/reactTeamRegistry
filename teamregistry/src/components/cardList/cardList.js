@@ -1,9 +1,9 @@
 import React from 'react';
-import ProfileCard from '../profileCard/profileCard';
+import ProfileCard from '../profileCard/ProfileCard';
 
 const CardList = ({list}) => {
   const cardList = list.map((profile, index) => {
-    return <ProfileCard
+    return (<ProfileCard
       key={index}
       id={list[index].id}
       firstName={list[index].name.first}
@@ -11,7 +11,7 @@ const CardList = ({list}) => {
       email={list[index].email}
       phone={list[index].phone}
       company={list[index].company}
-    />
+    />);
   })
   return (
     <div>
