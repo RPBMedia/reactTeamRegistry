@@ -2,7 +2,7 @@ import React from 'react';
 
 const Header = ({title}) => {
   return (
-    <h1 className="tc">{title}</h1>
+    <h1 className="tc main-title">{title}</h1>
   );
 }
 

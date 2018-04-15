@@ -2,4 +2,18 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  background: linear-gradient(to left, rgb(119, 148, 200) 0%, rgb(160, 163, 168) 100%);
+}
+
+.main-title{
+  font-family: 'neoteric';
+  font-size: 60px;
+  color: lightgray;
+  text-shadow: 3px 3px #555;
+}
+
+.search-box {
+  width: 400px;
+  margin-bottom: 10px;
+  border-radius: 10px;
 }
