@@ -31,13 +31,14 @@ class App extends Component {
   }
 
   render() {
+    const { profiles, searchFilter } = this.state;
 
-    const filteredProfiles = this.state.profiles.filter(profiles => {
-      return (profiles.name.toLowerCase().includes(this.state.searchFilter.toLowerCase()) ||
-              profiles.email.toLowerCase().includes(this.state.searchFilter.toLowerCase()));
+    const filteredProfiles = profiles.filter(profiles => {
+      return (profiles.name.toLowerCase().includes(searchFilter.toLowerCase()) ||
+              profiles.email.toLowerCase().includes(searchFilter.toLowerCase()));
     });
 
-    if(this.state.profiles.length === 0) {
+    if(profiles.length === 0) {
       return <h1 className="tc loading-title">Loading profiles...</h1>
     }
 
@@ -46,7 +47,7 @@ class App extends Component {
         <Header title='Team Registry'/>
         <SearchBox
           searchChange={this.onSearchChange}
-          searchFilter={this.state.searchFilter}
+          searchFilter={searchFilter}
         />
         <Scroll>
           <CardList list={filteredProfiles}/>
